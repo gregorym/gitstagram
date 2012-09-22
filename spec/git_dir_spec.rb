@@ -48,7 +48,17 @@ describe Gitstagram::GitDir do
         @dir.has_post_commit_hook?.should be_false
       end
     end
+  end
 
+  describe "#delete_post_commit" do
+    before do
+      stub(File).exists? { true }
+      mock(File).delete("./.git/hooks/post-commit")
+    end
+
+    it "should delete the post-commit file" do
+      @dir.delete_post_commit
+    end
   end
 
 end

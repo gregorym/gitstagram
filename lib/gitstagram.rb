@@ -11,7 +11,24 @@ module Gitstagram
     #
     def tools_path
       File.expand_path('../tools', File.dirname(__FILE__))
-    end 
+    end
+
+    #
+    # Returns the absolute path to the home directory
+    #
+    def home_path
+      File.expand_path("~")
+    end
+
+    #
+    # Returns the path to where images are saved.
+    #
+    def saving_path
+      path = home_path + '/.gitstagram'
+    
+      Dir.mkdir(path) unless Dir.exists?(path)
+      path
+    end
 
   end
 end

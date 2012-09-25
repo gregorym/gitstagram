@@ -2,6 +2,7 @@ require 'gitstagram/version'
 require 'gitstagram/system_caller'
 require 'gitstagram/git_dir'
 require 'gitstagram/snapshot'
+require 'gitstagram/movie_maker'
 
 module Gitstagram
   class << self

@@ -7,7 +7,8 @@ module Gitstagram
       # Takes a snapshot
       #
       def smile
-        Gitstagram::SystemCaller.call ".#{Gitstagram.tools_path}/imagesnap -q -w 3 #{Gitstagram.saving_path}"
+        saving_path = Gitstagram.saving_path + "/#{Time.now.to_i}.jpg"
+        Gitstagram::SystemCaller.call "#{Gitstagram.tools_path}/imagesnap -q -w 3 #{saving_path}"
       end
 
     end

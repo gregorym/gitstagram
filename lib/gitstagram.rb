@@ -1,4 +1,5 @@
 require 'gitstagram/version'
+require 'gitstagram/errors'
 require 'gitstagram/system_caller'
 require 'gitstagram/git_dir'
 require 'gitstagram/snapshot'

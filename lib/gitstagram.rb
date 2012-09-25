@@ -32,5 +32,29 @@ module Gitstagram
       path
     end
 
+    #
+    # Install the post-commit hook
+    #
+    def install
+      git_dir = GitDir.new(File.expand_path("."))
+      raise NotGitDirectoryError        unless git_dir.is_git_directory?
+      raise PostCommitAlreadyExistError if git_dir.has_post_commit_hook?
+
+      git_dir.add_post_commit
+      puts 'Gitstagram properly installed.'
+    end
+
+    #
+    # Remove the post-commit hook
+    # 
+    def uninstall
+      git_dir = GitDir.new(File.expand_path("."))
+      raise NotGitDirectoryError        unless git_dir.is_git_directory?
+      raise NoPostCommitExistError      unless git_dir.has_post_commit_hook?
+
+      git_dir.delete_post_commit
+      puts 'Gitstagram properly uninstalled from this Git repository.'
+    end
+
   end
 end

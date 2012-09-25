@@ -6,7 +6,7 @@ module Gitstagram
     ## Check the presence of .git in the folder
     #
     def is_git_directory?
-      Dir.glob.include? '.git'
+      Dir.glob('.git').include? '.git'
     end
     alias_method :is_git_dir?, :is_git_directory?
 
@@ -15,7 +15,7 @@ module Gitstagram
     # Returns true if the git directory already has a post-commit hook.
     #
     def has_post_commit_hook?
-      Dir.glob('./.git/hooks/*').include? 'post-commit'
+      Dir.glob('.git/hooks/*').include? '.git/hooks/post-commit'
     end
 
     #

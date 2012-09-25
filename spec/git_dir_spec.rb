@@ -30,7 +30,7 @@ describe Gitstagram::GitDir do
   describe "#has_post_commit_hook" do
     context "hooks folder contains a post-commit file" do
       before do
-        stub(Dir).glob { ['post-commit', 'pre-commit.sample'] }
+        stub(Dir).glob { ['.git/hooks/post-commit', '.git/hooks/pre-commit.sample'] }
       end
 
       it "should return true" do

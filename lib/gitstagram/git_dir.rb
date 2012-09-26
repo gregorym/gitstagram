@@ -29,19 +29,7 @@ module Gitstagram
     end
 
     def add_post_commit
-      file = %(
-        #!/usr/bin/env ruby
-        require 'rubygems'
-        require 'gistagram'
-        begin
-          Gitstagram::Snapshot.smile
-        rescue e
-          STDERR.puts e.message
-          STDERR.puts e.backtrace.join("\n")
-        end
-        exit 0
-      )
-
+      file = "#!/usr/bin/env ruby\nrequire 'rubygems'\nrequire 'gitstagram'\nbegin\nGitstagram::Snapshot.smile\nrescue e\nSTDERR.puts e.message\nSTDERR.puts e.backtrace.join(', ')\nend\nexit 0\n"
       File.open('./.git/hooks/post-commit', 'w') {|f| f.write(file) }
     end
 

@@ -56,5 +56,16 @@ module Gitstagram
       puts 'Gitstagram properly uninstalled from this Git repository.'
     end
 
+    #
+    # Generate video from all the snapshots
+    #
+    def timelapse
+      raise NoSnapshotError if Dir.glob(saving_path+'/*.jpg').count.zero?
+
+      puts "Generate video..."
+      MovieMaker.build
+      puts "Video is ready."
+    end
+
   end
 end

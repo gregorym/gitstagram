@@ -4,7 +4,7 @@ describe Gitstagram::MovieMaker do
 
   describe "#build" do
     before do
-      command = ".#{Gitstagram.tools_path}/tlassemble #{Gitstagram.saving_path} gitstagram.mov -quiet yes"
+      command = "#{Gitstagram.tools_path}/tlassemble #{Gitstagram.saving_path} ~/Desktop/gitstagram.mov -quiet yes"
       mock(Gitstagram::SystemCaller).call(command)
     end
 

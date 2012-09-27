@@ -74,4 +74,14 @@ describe Gitstagram do
     end
   end
 
+  describe "#timelapse" do
+    it "should raise NoSnapshotError" do
+      stub(Dir).glob { [] }
+
+      lambda {
+        Gitstagram.timelapse
+      }.should raise_error(Gitstagram::NoSnapshotError)
+    end
+  end
+
 end

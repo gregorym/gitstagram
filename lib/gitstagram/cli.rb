@@ -31,6 +31,15 @@ module Gitstagram
             puts "Gitstagram is not installed in this Git repository."
           end
         end
+
+        o.on "-t", "--timelapse" do
+          begin
+            Gitstagram.timelapse
+          rescue NoSnapshotError
+            puts "you do not have any snapshots yet."
+          end
+        end
+
       end
 
       @parser.parse!(argv)

@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/gitstagram/cli.rb'
+
+begin
+  cli = Gitstagram::CLI.new
+  cli.run
+rescue => e
+  STDERR.puts e.message
+  STDERR.puts e.backtrace.join("\n")
+  exit 1
+end

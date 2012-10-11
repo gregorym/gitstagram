@@ -8,7 +8,7 @@ describe Gitstagram::GitDir do
   describe "#is_git_directory?" do
     context 'folder contains a .git directory' do
       before do
-        stub(Dir).glob { ['.git'] }
+        stub(Dir).entries { ['.git'] }
       end
 
       it 'should return true' do
@@ -18,7 +18,7 @@ describe Gitstagram::GitDir do
 
     context 'folder does not contain a .git directory' do
       before do
-        stub(Dir).glob { ['hello', 'world'] }
+        stub(Dir).entries { ['hello', 'world'] }
       end
 
       it 'should return false' do
@@ -30,7 +30,7 @@ describe Gitstagram::GitDir do
   describe "#has_post_commit_hook" do
     context "hooks folder contains a post-commit file" do
       before do
-        stub(Dir).glob { ['.git/hooks/post-commit', '.git/hooks/pre-commit.sample'] }
+        stub(Dir).entries { ['post-commit', 'pre-commit.sample'] }
       end
 
       it "should return true" do
@@ -41,7 +41,7 @@ describe Gitstagram::GitDir do
 
     context "hooks folder does not contain a post-commit file" do
       before do
-        stub(Dir).glob { ['post-commit.sample', 'pre-commit.sample'] }
+        stub(Dir).entries { ['post-commit.sample', 'pre-commit.sample'] }
       end
 
       it "should return true" do

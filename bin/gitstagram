@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/gitstagram/cli.rb'
+require File.join(File.dirname(__FILE__), '../lib/gitstagram/cli.rb')
 
 begin
   cli = Gitstagram::CLI.new

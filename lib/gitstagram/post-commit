@@ -4,7 +4,7 @@ require 'rubygems'
 begin
   require 'gitstagram'
 rescue LoadError
-  STDERR.puts 'Gistagram is not install. Run: gem install gitstgram'
+  STDERR.puts 'Gistagram is not install. Run: gem install gitstagram'
 end
 
 begin

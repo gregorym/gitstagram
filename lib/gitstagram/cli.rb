@@ -43,6 +43,11 @@ module Gitstagram
         o.on "-s", "--snapshot" do
           Gitstagram::Snapshot.smile
         end
+
+        o.on "-v", "--version" do
+          puts Gitstagram::VERSION
+        end
+
       end
 
       @parser.parse!(argv)

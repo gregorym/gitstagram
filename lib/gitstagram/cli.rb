@@ -40,6 +40,9 @@ module Gitstagram
           end
         end
 
+        o.on "-s", "--snapshot" do
+          Gitstagram::Snapshot.smile
+        end
       end
 
       @parser.parse!(argv)

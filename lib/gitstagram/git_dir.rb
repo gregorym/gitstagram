@@ -33,12 +33,7 @@ module Gitstagram
     end
 
     def add_post_commit
-      file = File.open(File.expand_path('post-commit', File.dirname(__FILE__)), 'r') { |f| f.read }
-      file.sub!('*||*') do |s|
-        File.expand_path('../gitstagram.rb', File.dirname(__FILE__))
-      end
-
-      File.open('./.git/hooks/post-commit', 'w', 0755) {|f| f.write(file) }
+      File.open('./.git/hooks/post-commit', 'w', 0755) {|f| f.write("#!/bin/sh\ngitstagram --snapshot") }
     end
   end
 end
